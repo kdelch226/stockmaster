@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@media screen and (max-width:450px) {
+    *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        font-size: 12px;
+    }
+}

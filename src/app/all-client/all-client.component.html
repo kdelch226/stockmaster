@@ -1,0 +1,15 @@
+<div class="container text-center ">
+    <h1 class="mb-5">liste des clients</h1>
+    <form>
+        <input class="mb-5 me-5" type="text" name="cherhcer" id="" placeholder="cherhcer client...">
+        <select>
+            <option value="">filtre</option>
+            <option value="">prix croissant</option>
+            <option value="">prix decroissant</option>
+
+        </select>
+    </form>
+    <div *ngFor="let singleClient of allClient">
+        <app-client [client]="singleClient"></app-client>
+    </div>
+</div>
