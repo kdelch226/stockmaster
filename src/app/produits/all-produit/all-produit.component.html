@@ -1,0 +1,32 @@
+<div class="container text-center mb-5">
+
+    <h1 class="mb-5">liste des produits</h1>
+    <div class="row mb-5">
+        <input  class="col mx-2" type="text" name="chercher" id="" placeholder="cherhcer produit..."[(ngModel)]="motRecherche" (change)="chercherProduit(motRecherche)" >
+        <select class="col mx-2" (input)="triProduit($event)" >
+            <option value="">filtre...</option>
+            <option value="prixCroissant">prix croissant</option>
+            <option value="prixDecroissanr">prix decroissant</option>
+            <option value="nomCroissant">nom croissant</option>
+            <option value="nomDecroissant">nom decroissant</option>
+            <option value="quantiteCroissant">quantite croissant</option>
+            <option value="quantiteDecroissant">quantite decroissant</option>
+        </select>
+        <button (click)="OpenAddProduitModal()" class="col mx-2 btn btn-secondary">ajouter produit</button>
+        
+    </div>
+
+    <div>
+        <div class="row text-center border border-dark align-items-center py-1 me-1">
+            <h5 class="col">produit</h5>
+            <h5 class="col">prix</h5>
+            <h5 class="col">format</h5>
+            <h5 class="col">quantite</h5>
+        </div>
+    
+        <div *ngFor="let singleproduct of allProduct">
+            <app-produit [product]="singleproduct"></app-produit>
+        </div>
+    </div>
+    
+</div>

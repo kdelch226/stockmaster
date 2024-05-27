@@ -1,0 +1,10 @@
+<div *ngIf="product" class="row text-center border align-items-center p-4 me-1" (click)="OpenProduitInfoModal()">
+    <div class="col titre d-flex align-items-center">
+        <div *ngIf="product.getImage()"><img [src]="product.getImage()" alt="" srcset=""></div>
+        <div *ngIf="!product.getImage()"><img src="../../assets/indisponible.png" alt="" srcset=""></div>
+        {{product.getName()}}
+    </div>
+    <div class="col">{{product.getPrice()}} $</div>
+    <div class="col">{{format}}</div>
+    <div class="col">{{product.getQuantityInStock()}}</div>
+</div>

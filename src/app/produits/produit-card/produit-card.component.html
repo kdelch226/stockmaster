@@ -1,0 +1,16 @@
+<div *ngIf="produit" class="card p-0 mb-3 mx-2  shadow produit">
+    <img class="card-img-top m-0" src="../../../assets/indisponible.png">
+    <div class=" card-body">
+        <h5 class="card-title">{{produit.getName()}} <br>
+            <span class="text-secondary fs-6">
+                {{produit.getQuantityInStock()}} en stock
+            </span>
+        </h5>
+        <div class="d-flex justify-content-between">
+            <input type="number" class="form-control p-0 me-1" placeholder="quantite" name="quantite" [(ngModel)]="quantite">
+            <button type="button" class="btn btn-primary" (click)="ajouterPanier(produit,quantite)">
+                ajouter
+            </button>
+        </div>
+    </div>
+</div>

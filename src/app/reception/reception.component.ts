@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Reception } from '../model/reception';
+import { Reception } from '../core/model/reception';
 
 @Component({
   selector: 'app-reception',

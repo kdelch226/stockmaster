@@ -1,0 +1,54 @@
+<div class="row  text-center shadow">
+    <div class="col-lg   form">
+        <form *ngIf="login==true" class="login" (ngSubmit)="logIn()">
+
+            <h2>Se connecter a son compte</h2>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control"  name="email" placeholder="name@example.com" [(ngModel)]="formDataLogIn.email">
+                <label for="floatingInput">Addresse email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="formDataLogIn.password">
+                <label for="floatingPassword">Mot de passe</label>
+            </div>
+
+            <div class="d-grid gap-2 mx-auto">
+                <button class="btn btn-primary" type="submit">Connexion</button>
+                <button class="btn btn-primary" (click)="inverseAction()" type="button">Inscription</button>
+            </div>
+
+        </form>
+        <form *ngIf="signup==true" class="sign" (ngSubmit)="signUp()">
+            <h2>Creer un nouveau compte</h2>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="name" name="name"  [(ngModel)]="formDataSignUp.name">
+                <label for="floatingInput">Nom</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="prename" name="prename" [(ngModel)]="formDataSignUp.prename">
+                <label for="floatingInput">PreNom</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" placeholder="name@example.com" name="email" [(ngModel)]="formDataSignUp.email">
+                <label for="floatingInput">Addresse email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="formDataSignUp.password">
+                <label for="floatingPassword">Mot de passe</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" placeholder="Password" name="confirmpassword" [(ngModel)]="formDataSignUp.confirmpassword">
+                <label for="floatingPassword">Confirmer mot de passe</label>
+            </div>
+            <div class="d-grid gap-2 mx-auto">
+                <button class="btn btn-primary" type="submit">Creer compte</button>
+                <button class="btn btn-primary" type="button" (click)="inverseAction()">Compte existant</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg image">
+        <img src="../../assets/login.png" alt="">
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="row text-center border align-items-center p-2 me-1" (click)="OpenCommandeInfoModal()">
+    <div class="col">
+        <h6>{{commande.client}}</h6>
+    </div>
+    <div class="col">
+        <h6>{{commande.prixCommande}} $</h6>
+    </div>
+    <div class="col">
+        <p>{{commande.dateLivraison | date:'dd MMM yyyy'}}</p>
+    </div>
+    <div class="col">
+        <p>{{commande.statut}}</p>
+    </div>
+</div>

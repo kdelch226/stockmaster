@@ -1,0 +1,32 @@
+<div class="container-sm">
+    <div class="acceuil">
+        <h1>Parametre du compte</h1>
+        <p>changer votre profil et vos paramtre dans cette section</p>
+    </div>
+
+    <div class=" parametre mt-5">
+        <form action="">
+            <div class="input-group mb-5">
+                <span class="input-group-text" id="basic-addon1">Nom</span>
+                <input type="text" class="form-control" disabled>
+
+                <span class="input-group-text ms-5" id="basic-addon1">Prenom</span>
+                <input type="text" class="form-control" disabled>
+            </div>
+
+            <div class="input-group mb-5">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input type="text" class="form-control" disabled>
+
+                <span class="input-group-text ms-5" id="basic-addon1">mot de passe</span>
+                <input type="text" class="form-control" disabled>
+            </div>
+
+            <div>
+                <button *ngIf="!actionModifier" class="btn me-4 btn-secondary" (click)="modifier()">modifier</button>
+                <button *ngIf="!actionModifier" class="btn me-4 btn-danger" (click)="modifier()">Enregister</button>
+
+            </div>
+        </form>
+    </div>
+</div>

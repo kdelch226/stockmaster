@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h3>Visualisation du produit</h3>
+    <button class="btn-close" (click)="closeModal()"></button>
+</div>
+
+<div class="modal-body">
+    <form action="">
+        <div  class="modal-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Nom du client</span>
+                <input type="text" class="form-control mon-input" name="name" [(ngModel)]="formData.name" 
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">numero de telephone</span>
+                <input type="text" class="form-control mon-input" name="phoneNumber" [(ngModel)]="formData.phoneNumber"
+                     required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">addresse / localisation</span>
+                <input type="text" class="form-control mon-input" name="address" [(ngModel)]="formData.address" 
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Type</span>
+                <select name="format" class="form-select mon-input" [(ngModel)]="formData.type"  required>
+                    <option value="particulier">particulier</option>
+                    <option value="entreprise">entreprise</option>
+                </select>
+            </div>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">email</span>
+                <input type="email" class="form-control mon-input" name="email"
+                    [(ngModel)]="formData.email"  required>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer d-flex justify-content-start">
+    <button  class="btn me-4 btn-secondary" (click)="creerClient()">ajouter</button>
+</div>

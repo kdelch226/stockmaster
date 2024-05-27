@@ -1,0 +1,15 @@
+.row{
+    cursor: pointer;
+}
+
+.row:hover{
+    background-color: rgb(222, 222, 222);
+    transition: 0.5s;
+    transform: scale(0.99);
+}
+
+.col img{
+    height:4vh ;
+    margin-right: 15px;
+    min-height: 25px;
+}

@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <h3>Visualisation du produit</h3>
+    <button class="btn-close" (click)="closeModal(); actionModifier=false"></button>
+</div>
+
+<div class="modal-body">
+    <form action="">
+        <div *ngIf="client" class="modal-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Nom du client</span>
+                <input type="text" class="form-control mon-input" name="name" [(ngModel)]="formData.name" disabled
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">numero de telephone</span>
+                <input type="text" class="form-control mon-input" name="phoneNumber" [(ngModel)]="formData.phoneNumber"
+                    disabled required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">addresse / localisation</span>
+                <input type="text" class="form-control mon-input" name="address" [(ngModel)]="formData.address" disabled
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Type</span>
+                <select name="format" class="form-select mon-input" [(ngModel)]="formData.type" disabled required>
+                    <option s>{{client.type}}</option>
+                    <option value="particulier">particulier</option>
+                    <option value="entreprise">entreprise</option>
+                </select>
+            </div>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">email</span>
+                <input type="email" class="form-control mon-input" name="email"
+                    [(ngModel)]="formData.email" disabled required>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer d-flex justify-content-start">
+    <button *ngIf="!actionModifier" class="btn me-4 btn-secondary" (click)="modifier()">modifier</button>
+
+    <button *ngIf="actionModifier" class="btn me-4 btn-danger" (click)="delet()">supprimer</button>
+    <button *ngIf="actionModifier" class="btn me-4 btn-secondary"
+        (click)="closeModal(); actionModifier=false">annuler</button>
+    <button *ngIf="actionModifier" class="btn me-4 btn-danger" (click)="update()"> enregistrer</button>
+</div>

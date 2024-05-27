@@ -1,0 +1,15 @@
+.card{
+    max-width: 12em;
+    max-height: 19em;
+}
+
+
+.card-img-top{
+    max-width: 100%;
+    max-height: 60%;
+}
+
+.input-group img{
+    max-width: 1em;
+    margin-left:5px ;
+}

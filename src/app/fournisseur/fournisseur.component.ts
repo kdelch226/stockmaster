@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Fournisseur } from '../model/fournisseur';
+import { Fournisseur } from '../core/model/fournisseur';
 
 @Component({
   selector: 'app-fournisseur',

@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.col{
+    border-right: 1px solid black;
+    cursor: pointer;
+    height: 100%;
+}
+
+.row:hover{
+    background-color: rgb(222, 222, 222);
+    transition: 0.5s;
+    transform: scale(0.99);
+}
+
+
+.modal-body img{
+    width: 100%;
+}

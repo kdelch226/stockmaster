@@ -1,0 +1,99 @@
+<div class="modal-header">
+  <h3>Visualisation du produit</h3>
+  <button class="btn-close" (click)="closeModal()"></button>
+</div>
+
+<div class="modal-body">
+  <form action="">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Nom du client</span>
+      <input type="text" class="form-control mon-input" name="clientname" [(ngModel)]="formData.clientname" required>
+    </div>
+
+    <div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">produit <img src="../../../assets/icons8-chercher-50.png" alt=""
+            srcset=""></span>
+        <input type="text" class="form-control mon-input" name="motProduitRecherche" [(ngModel)]="motProduitRecherche"
+          placeholder="nom des produits" (input)="onProduitRechercher()">
+      </div>
+
+      <div *ngIf="((motProduitRecherche.trim()!='')) && (listeProduitAjouter)">
+        <div class="rechercheProduit p-1 border ">
+          <app-produit-card class="mx-2" *ngFor="let produitt of listeProduitRechercher"
+            [produit]="produitt"></app-produit-card>
+        </div>
+      </div>
+
+
+      <div class="panier-content mb-3" *ngIf="listeProduitAjouter.commandesItems.length">
+
+        <h5>liste des produits de la commande</h5>
+
+        <div class="row text-center border-bottom p-1">
+          <div class="col ">
+            nom
+          </div>
+          <div class="col ">
+            format
+          </div>
+          <div class="col ">
+            prix unitaire
+          </div>
+          <div class="col  ">
+            prix global
+          </div>
+
+        </div>
+                <!-- les item present dans le panier pour chaque item on affiche les information sur un eligne horizontal--> 
+                <div class="list-group" *ngFor="let item of listeProduitAjouter.commandesItems">
+
+                  <div *ngIf="item" class="row text-center border-bottom p-1">
+                    <div class="col text-start name">
+                      <button class="btn-close me-3" (click)="removeitemFromPanier(item)"></button>
+                      {{item.produit.getName()}}
+                    </div>
+                    <div class="col quantite">
+                      {{item.quantity}} {{item.produit.getUnitType()}} <span *ngIf="item.produit.getUnitType()==='caisse'">/
+                        {{item.produit.getUnitQuantity()}}</span>
+                    </div>
+                    <div class="col prixUnitaire">
+                      {{item.produit.getPrice()}}
+                    </div>
+                    <div class="col text-success thePrice">
+                      {{item.Getprice() | currency}}
+                    </div>
+                  </div>
+        
+                </div>
+      </div>
+    </div>
+
+    <!-- <ngb-datepicker #dp  [markDisabled]="isDisabled" [ngClass]="{'custom-class': isCustomDate}">
+    </ngb-datepicker> -->
+    <div class="input-group mb-3">
+      <span class="input-group-text">date de livraison </span>
+      <input type="datetime-local" class="form-control mon-input" name="dateLivraison" [(ngModel)]="formData.dateLivraison"
+        placeholder="nom des produits">
+    </div>
+    
+    <div class="input-group mb-3">
+      <span class="input-group-text">lieu de livraison </span>
+      <input type="text" class="form-control mon-input" name="lieuLivraison" [(ngModel)]="formData.lieuLivraison"
+        placeholder="nom de ville / quartier ou addresse exat" >
+    </div>
+
+  </form>
+
+  <div class="checkout border shadow-sm mb-3 ms-3">
+    <div class="foodNumb">nombre : {{listeProduitAjouter.commandesItems.length}}</div>
+    <div class="foodNumb">Prix :$ {{listeProduitAjouter.GetTotalprice()}}</div>
+  </div>
+
+</div>
+
+<div class="modal-footer d-flex justify-content-start">
+  <button class="btn me-4 btn-danger" (click)="createCommande();closeModal()">creer
+    commande</button>
+</div>

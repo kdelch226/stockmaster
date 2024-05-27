@@ -1,0 +1,9 @@
+<div class="row border shadow-sm my-3 py-1 align-items-center me-1" (click)="openClientInfo()">
+    <div class="col text-start d-flex align-items-center ">
+        <div *ngIf="client.type=='particulier'"><img src="../../assets/icons8-client-60.png" alt="" srcset=""></div>
+        <div *ngIf="client.type=='entreprise'"><img src="../../../assets/icons8-immeuble-50.png" alt="" srcset=""></div>
+        <div class="ms-4">{{client.name}}</div>
+    </div>
+    <div class="col">{{client.phoneNumber}} $ </div>
+    <div class="col">{{client.email}} </div>
+</div>

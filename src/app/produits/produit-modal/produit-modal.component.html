@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h3>Visualisation du produit</h3>
+    <button class="btn-close" (click)="closeModal(); actionModifier=false"></button>
+</div>
+
+<div class="modal-body">
+    <div *ngIf="product" class="border">
+        <div *ngIf="product.getImage()">
+            <img [src]="product.getImage()" alt="">
+        </div>
+        <div *ngIf="!product.getImage()">
+            <img src="../../assets/indisponible.png" alt="">
+        </div>
+    </div>
+    <form action="">
+        <div *ngIf="product" class="modal-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Nom du produit</span>
+                <input type="text" class="form-control mon-input" name="name" [(ngModel)]="formData.name" disabled
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Description du produit</span>
+                <input type="text" class="form-control mon-input" name="description" [(ngModel)]="formData.description"
+                    disabled required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Prix</span>
+                <input type="number" class="form-control mon-input" name="prix" [(ngModel)]="formData.price" disabled
+                    required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Format</span>
+                <select name="format" class="form-select mon-input" [(ngModel)]="formData.unitType" disabled required>
+                    <option s>{{product.getUnitType()}}</option>
+                    <option value="caisse">caisse</option>
+                    <option value="bouteille">bouteille</option>
+                    <option value="cannette">cannette</option>
+                </select>
+            </div>
+
+            <div *ngIf="formData.unitType==='caisse'" class="input-group mb-3">
+                <span class="input-group-text"> Quantité par caisse</span>
+                <input type="number" class="form-control mon-input" name="quantiteParCaisse"
+                    [(ngModel)]="formData.unitQuantity" disabled required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Quantité en stock</span>
+                <input type="number" class="form-control mon-input" name="quantite"
+                    [(ngModel)]="formData.quantityInStock" disabled required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Fournisseur</span>
+                <input type="text" class="form-control mon-input" name="fournisseur"
+                    [(ngModel)]="formData.fournisseurId" disabled required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">nouvelle Image</span>
+                <input type="file" class="form-control mon-input" name="image" accept="image/*"
+                    (change)="onFileSelected($event)" disabled required>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer d-flex justify-content-start">
+    <button *ngIf="!actionModifier" class="btn me-4 btn-secondary" (click)="modifier()">modifier</button>
+
+    <button *ngIf="actionModifier" class="btn me-4 btn-danger" (click)="delet()">supprimer</button>
+    <button *ngIf="actionModifier" class="btn me-4 btn-secondary"
+        (click)="closeModal(); actionModifier=false">annuler</button>
+    <button *ngIf="actionModifier" class="btn me-4 btn-danger" (click)="update()"> enregistrer</button>
+</div>
